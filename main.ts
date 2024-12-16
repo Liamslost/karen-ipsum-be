@@ -35,24 +35,31 @@ app.get("/moods", async (req, res) => {
 
 app.get("/ipsum", async (req, res) => {
   try {
-    const id = Number(req.query.id)
+    const id = Number(req.query.id);
     const karenId = ObjectId.createFromHexString(req.query.id);
+    const sentences = Number(req.query.sentences) ||  5 ;
+    const parragraphs = Number(req.query.parragraphs) | 1;
     const filter = {
         _id: karenId,
     };
+
     const connection = await getDatabase();
     const getIpsum = await connection
-
     .db("karen-ipsum")
     .collection("karens")
     .findOne(filter)
     
-    
+    const quotes: string[] = getIpsum?.quotes || [];
+    const result: string[] = [];
 
-    res.json({message: " Succesfully retrtieved ", data: getIpsum.quotes})
+    for (let i = 0; i < sentences; i++){
+        const random = Math.floor(Math.random() * quotes.length)
+        result.push(quotes[random] + " ")
+    }
 
 
 
+    res.status(200).json({message: " Succesfully retrtieved ", data: result})
 
   } catch (error) {
     res.status(500).json({
