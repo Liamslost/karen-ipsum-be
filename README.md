@@ -1,30 +1,28 @@
-Generate Karen Text - Story 1
-URL
 
-/ipsum
+## Generate Karen Text - Story 1
 
-Method:
+**URL**
 
-GET
+`/ipsum`
 
-URL Params
+**Method:**  
+`GET`
 
-Optional Parameters:
+### URL Params
 
-paragraphs (int): Number of paragraphs to generate (default: 3).
-mood (string): Karen mood, e.g., "passive-aggressive," "polite," or "manager-mode" (default: "polite").
-Example:
+#### Optional Parameters:
+- `paragraphs` (int): Number of paragraphs to generate (default: `3`).  
+- `mood` (string): Karen mood, e.g., `passive-aggressive`, `polite`, or `manager-mode` (default: `polite`).  
 
-/ipsum?paragraphs=2&mood=manager-mode
+**Example:**  
+`/ipsum?paragraphs=2&mood=manager-mode`
 
-Success Response:
+### Success Response:
 
-Code: 200 OK
+**Code:** `200 OK`
 
-Content:
-
-json
-Copy code
+**Content:**
+```json
 {
   "message": "Successfully generated Karen-inspired text",
   "data": {
@@ -36,27 +34,34 @@ Copy code
       ]
   }
 }
-Error Response:
+```
 
-Code: 400 BAD REQUEST
-Content: {"message": "Invalid mood or parameter", "data": {}}
+### Error Responses:
 
-Code: 500 SERVER ERROR
-Content: {"message": "Unexpected error", "data": {}}
+- **Code:** `400 BAD REQUEST`  
+  **Content:**
+  ```json
+  {"message": "Invalid mood or parameter", "data": {}}
+  ```
 
-Add New Karen Mood - Story 2
-URL
+- **Code:** `500 SERVER ERROR`  
+  **Content:**
+  ```json
+  {"message": "Unexpected error", "data": {}}
+  ```
 
-/moods
+---
 
-Method:
+## Add New Karen Mood - Story 2
 
-POST
+**URL**  
+`/moods`
 
-Request Body:
+**Method:**  
+`POST`
 
-json
-Copy code
+### Request Body:
+```json
 {
     "name": "condescending",
     "examples": [
@@ -64,14 +69,14 @@ Copy code
         "Bless your heart, you’re doing your best, aren’t you?"
     ]
 }
-Success Response:
+```
 
-Code: 201 Created
+### Success Response:
 
-Content:
+**Code:** `201 Created`  
 
-json
-Copy code
+**Content:**
+```json
 {
   "message": "Successfully added new Karen mood",
   "data": {
@@ -79,39 +84,44 @@ Copy code
       "name": "condescending"
   }
 }
-Error Response:
+```
 
-Code: 400 BAD REQUEST
-Content: {"message": "Invalid data", "data": {}}
+### Error Responses:
 
-Code: 500 SERVER ERROR
-Content: {"message": "Unexpected error", "data": {}}
+- **Code:** `400 BAD REQUEST`  
+  **Content:**
+  ```json
+  {"message": "Invalid data", "data": {}}
+  ```
 
-Get All Karen Moods - Story 3
-URL
+- **Code:** `500 SERVER ERROR`  
+  **Content:**
+  ```json
+  {"message": "Unexpected error", "data": {}}
+  ```
 
-/moods
+---
 
-Method:
+## Get All Karen Moods - Story 3
 
-GET
+**URL**  
+`/moods`
 
-URL Params
+**Method:**  
+`GET`
 
-None
+### URL Params:
+None  
 
-Example:
+**Example:**  
+`/moods`
 
-/moods
+### Success Response:
 
-Success Response:
+**Code:** `200 OK`
 
-Code: 200 OK
-
-Content:
-
-json
-Copy code
+**Content:**
+```json
 {
   "message": "Successfully retrieved all Karen moods",
   "data": [
@@ -129,34 +139,39 @@ Copy code
       }
   ]
 }
-Error Response:
+```
 
-Code: 500 SERVER ERROR
-Content: {"message": "Unexpected error", "data": []}
-Get Mood Details - Story 4
-URL
+### Error Responses:
 
-/moods/:moodId
+- **Code:** `500 SERVER ERROR`  
+  **Content:**
+  ```json
+  {"message": "Unexpected error", "data": []}
+  ```
 
-Method:
+---
 
-GET
+## Get Mood Details - Story 4
 
-URL Params
+**URL**  
+`/moods/:moodId`
 
-moodId (int): ID of the Karen mood.
-Example:
+**Method:**  
+`GET`
 
-/moods/1
+### URL Params:
 
-Success Response:
+- `moodId` (int): ID of the Karen mood.  
 
-Code: 200 OK
+**Example:**  
+`/moods/1`
 
-Content:
+### Success Response:
 
-json
-Copy code
+**Code:** `200 OK`
+
+**Content:**
+```json
 {
   "message": "Successfully retrieved mood details",
   "data": {
@@ -168,38 +183,45 @@ Copy code
       ]
   }
 }
-Error Response:
+```
 
-Code: 400 BAD REQUEST
-Content: {"message": "Invalid mood ID", "data": {}}
+### Error Responses:
 
-Code: 500 SERVER ERROR
-Content: {"message": "Unexpected error", "data": {}}
+- **Code:** `400 BAD REQUEST`  
+  **Content:**
+  ```json
+  {"message": "Invalid mood ID", "data": {}}
+  ```
 
-Get Example Text for a Mood - Story 5
-URL
+- **Code:** `500 SERVER ERROR`  
+  **Content:**
+  ```json
+  {"message": "Unexpected error", "data": {}}
+  ```
 
-/examples/:moodId
+---
 
-Method:
+## Get Example Text for a Mood - Story 5
 
-GET
+**URL**  
+`/examples/:moodId`
 
-URL Params
+**Method:**  
+`GET`
 
-moodId (int): ID of the Karen mood.
-Example:
+### URL Params:
 
-/examples/2
+- `moodId` (int): ID of the Karen mood.  
 
-Success Response:
+**Example:**  
+`/examples/2`
 
-Code: 200 OK
+### Success Response:
 
-Content:
+**Code:** `200 OK`
 
-json
-Copy code
+**Content:**
+```json
 {
   "message": "Successfully retrieved example text",
   "data": [
@@ -207,10 +229,18 @@ Copy code
       "I really appreciate all that you're doing, but I have some concerns."
   ]
 }
-Error Response:
+```
 
-Code: 400 BAD REQUEST
-Content: {"message": "Invalid mood ID", "data": {}}
+### Error Responses:
 
-Code: 500 SERVER ERROR
-Content: {"message": "Unexpected error", "data": {}}
+- **Code:** `400 BAD REQUEST`  
+  **Content:**
+  ```json
+  {"message": "Invalid mood ID", "data": {}}
+  ```
+
+- **Code:** `500 SERVER ERROR`  
+  **Content:**
+  ```json
+  {"message": "Unexpected error", "data": {}}
+  ```

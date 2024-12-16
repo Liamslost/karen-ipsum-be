@@ -2,7 +2,7 @@
     "_id": {
       "$oid": "675ff5bf1aefebaee7c24157"
     },
-    "style": "Polite Karen",
+    "style": "Polite",
     "quotes": [
       "Could we possibly fix this? I know mistakes happen.",
       "Excuse me, may I please have a moment of your time?",
@@ -60,7 +60,7 @@
     "_id": {
       "$oid": "675ff5d31aefebaee7c24159"
     },
-    "style": "Entitled Karen",
+    "style": "Entitled",
     "quotes": [
       "I’ve been coming here for 20 years; this has never happened before.",
       "I demand a discount for this inconvenience.",
@@ -118,7 +118,7 @@
     "_id": {
       "$oid": "675ff5e81aefebaee7c2415b"
     },
-    "style": "Passive-Aggressive Karen",
+    "style": "Passive-Aggressive",
     "quotes": [
       "Oh, I’m sure it’s not your fault. But who *is* responsible?",
       "I’m not upset; I’m just... surprised.",
@@ -176,7 +176,7 @@
     "_id": {
       "$oid": "675ff5fb1aefebaee7c2415d"
     },
-    "style": "Overly Concerned Karen",
+    "style": "Overly Concerned",
     "quotes": [
       "I just want to make sure no one else has to go through this.",
       "I wouldn’t want anyone to get the wrong idea.",
@@ -234,7 +234,7 @@
     "_id": {
       "$oid": "675ff60f1aefebaee7c2415f"
     },
-    "style": "Manager-Mode Karen",
+    "style": "Manager-Mode",
     "quotes": [
       "This needs to be escalated immediately.",
       "I refuse to leave until this is resolved.",
@@ -292,7 +292,7 @@
     "_id": {
       "$oid": "675ff6221aefebaee7c24161"
     },
-    "style": "Overly Friendly Karen",
+    "style": "Overly Friendly",
     "quotes": [
       "Oh, sugar, don’t worry about it. Just get it fixed for me, okay?",
       "Honey, you’re just the person I need to solve this issue.",
@@ -350,7 +350,7 @@
     "_id": {
       "$oid": "675ff6321aefebaee7c24163"
     },
-    "style": "Misunderstanding Karen",
+    "style": "Misunderstanding",
     "quotes": [
       "I thought this store had a price match guarantee.",
       "I don’t understand why this is so complicated.",

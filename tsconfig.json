@@ -2,7 +2,8 @@
 
     "files": [
     
-    "main.ts"
+    "main.ts",
+    "config.ts"
     
     ],
     
