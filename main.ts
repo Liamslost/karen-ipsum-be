@@ -2,7 +2,7 @@ import { getDatabase } from "./src/Services/databaseConnector";
 
 const express = require("express");
 const cors = require("cors");
-const {MongoClient, ObjectId}  = require('mongodb');
+const {MongoClient, ObjectId} = require('mongodb');
 const url = "mongodb://root:password@localhost:27017";
 const app = express();
 const port = 3001;
@@ -43,6 +43,12 @@ app.get("/ipsum", async (req, res) => {
         _id: karenId,
     };
 
+    if(!ObjectId.isValid(karenId)){
+        return res.status(400).json({message: "Invalid ID"})
+    }
+
+
+
     const connection = await getDatabase();
     const getIpsum = await connection
     .db("karen-ipsum")
@@ -57,9 +63,7 @@ app.get("/ipsum", async (req, res) => {
         result.push(quotes[random] + " ")
     }
 
-
-
-    res.status(200).json({message: " Succesfully retrtieved ", data: result})
+    res.status(200).json({message: " Succesfully retrieved ", data: result})
 
   } catch (error) {
     res.status(500).json({
