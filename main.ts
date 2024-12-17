@@ -2,7 +2,7 @@ import { getDatabase } from "./src/Services/databaseConnector";
 
 const express = require("express");
 const cors = require("cors");
-const {MongoClient, ObjectId} = require('mongodb');
+const { MongoClient, ObjectId } = require("mongodb");
 const url = "mongodb://root:password@localhost:27017";
 const app = express();
 const port = 3001;
@@ -37,34 +37,36 @@ app.get("/ipsum", async (req, res) => {
   try {
     const id = Number(req.query.id);
     const karenId = ObjectId.createFromHexString(req.query.id);
-    const sentences = Number(req.query.sentences) ||  5 ;
+    const sentences = Number(req.query.sentences) || 5;
     const parragraphs = Number(req.query.parragraphs) | 1;
     const filter = {
-        _id: karenId,
+      _id: karenId,
     };
 
-    if(!ObjectId.isValid(karenId)){
-        return res.status(400).json({message: "Invalid ID"})
+    if (!ObjectId.isValid(karenId)) {
+      return res.status(400).json({ message: "Invalid ID" });
     }
-
-
 
     const connection = await getDatabase();
     const getIpsum = await connection
-    .db("karen-ipsum")
-    .collection("karens")
-    .findOne(filter)
-    
-    const quotes: string[] = getIpsum?.quotes || [];
-    const result: string[] = [];
+      .db("karen-ipsum")
+      .collection("karens")
+      .findOne(filter);
 
-    for (let i = 0; i < sentences; i++){
-        const random = Math.floor(Math.random() * quotes.length)
-        result.push(quotes[random] + " ")
+    const quotes: string[] = getIpsum?.quotes || [];
+
+    const result: string[][] = [];
+
+    for (let i = 0; i < parragraphs; i++) {
+        const parragraph: string[] = []
+      for (let i = 0; i < sentences; i++) {
+        const random = Math.floor(Math.random() * quotes.length);
+        parragraph.push(quotes[random]);
+      }
+      result.push(parragraph);
     }
 
-    res.status(200).json({message: " Succesfully retrieved ", data: result})
-
+    res.status(200).json({ message: " Succesfully retrieved ", data: result });
   } catch (error) {
     res.status(500).json({
       message: "Unexpected Error",
