@@ -33,7 +33,7 @@ export async function getIpsum(req: Request, res: Response): Promise<void> {
           const parragraph: string[] = []
         for (let j = 0; j < sentences; j++) {
           const random = Math.floor(Math.random() * quotes.length);
-          parragraph.push(quotes[random]);
+          parragraph.push(quotes[random] + " ");
         }
         result.push(parragraph);
       }
