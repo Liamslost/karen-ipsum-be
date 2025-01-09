@@ -4,7 +4,10 @@
   "description": "an ipsum lorem text generator with a nod to internet culture",
   "main": "main.ts",
   "scripts": {
-    "test": "test"
+    "start": "ts-node main.ts",
+    "dev": "ts-node-dev src/main.ts",
+    "build": "tsc",
+    "test": "jest"
   },
   "author": "Liam O'Connell",
   "license": "ISC",
