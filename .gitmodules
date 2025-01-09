@@ -1,0 +1,4 @@
+[submodule "karen-ipsum-be"]
+  path = karen-ipsum-be
+  url = https://github.com/Liamslost/karen-ipsum-be.git
+
